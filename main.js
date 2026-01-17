@@ -8,6 +8,12 @@ let sum = 0;
 let columnIndex = -1;
 let isHeader = true;
 
+// If no file path or column name is provided
+if (!filePath || !columnName) {
+  console.log('Error: Invalid file path');
+  process.exit(0);
+}
+
 try {
   const stream = fs.createReadStream(filePath);
 
@@ -46,6 +52,6 @@ try {
     }
   });
 
-} catch {
+} catch (err) {
   console.log('Error: Invalid file path');
 }
