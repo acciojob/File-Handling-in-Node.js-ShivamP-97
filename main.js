@@ -9,14 +9,14 @@ let columnIndex = -1;
 let isHeader = true;
 
 if (!filePath || !columnName) {
-  console.log('Error');
+  console.log('Invalid file path');
   process.exit(0);
 }
 
 const stream = fs.createReadStream(filePath);
 
 stream.on('error', () => {
-  console.log('Error');
+  console.log('Invalid file path');
   process.exit(0);
 });
 
