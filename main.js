@@ -1,23 +1,23 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const csvFilePath = process.argv[2];
+const filePath = process.argv[2];
 const columnName = process.argv[3];
 
 let sum = 0;
 let columnIndex = -1;
 let isHeader = true;
 
-if (!csvFilePath || !columnName) {
-  console.error('Error: CSV file path and column name are required');
-  process.exit(1);
+if (!filePath || !columnName) {
+  console.log('Error');
+  process.exit(0);
 }
 
-const stream = fs.createReadStream(csvFilePath);
+const stream = fs.createReadStream(filePath);
 
 stream.on('error', () => {
-  console.error('Error: Invalid file path');
-  process.exit(1);
+  console.log('Error');
+  process.exit(0);
 });
 
 const rl = readline.createInterface({
